@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useAnimation, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { Github, Twitter, Linkedin, Mail, Coffee, Gamepad2, Camera, Music } from 'lucide-react';
 import Timeline from "@/components/Timeline/Timeline";
@@ -328,7 +328,7 @@ export const AboutPage: React.FC = () => {
                             className="text-xl text-slate-600 italic"
                             variants={fadeInUp}
                         >
-                            "Simplicity is the ultimate sophistication"
+                            Simplicity is the ultimate sophistication
                         </motion.p>
                         <motion.p
                             className="text-slate-500 mt-2"
