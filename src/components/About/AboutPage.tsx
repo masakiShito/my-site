@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export const AboutPage: React.FC = () => (
     <div className="min-h-screen pt-24 px-4 bg-gradient-to-br from-purple-50 via-blue-50 to-white">
@@ -16,7 +17,7 @@ export const AboutPage: React.FC = () => (
                     className="relative"
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl transform rotate-6 opacity-20" />
-                    <img
+                    <Image
                         src="/api/placeholder/500/600"
                         alt="Profile"
                         className="relative rounded-2xl shadow-xl object-cover w-full h-full"
@@ -34,9 +35,7 @@ export const AboutPage: React.FC = () => (
                     </h2>
 
                     <p className="text-gray-600 text-lg leading-relaxed">
-                        I'm a passionate developer and designer with a love for creating beautiful,
-                        functional digital experiences. With expertise in modern web technologies
-                        and an eye for design, I bring ideas to life through code.
+                        これは私のページです
                     </p>
 
                     <div className="grid grid-cols-2 gap-6">

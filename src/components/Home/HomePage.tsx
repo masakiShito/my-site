@@ -37,7 +37,7 @@ export const HomePage: React.FC = () => {
                     className="mb-8"
                 >
                     <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
-                        Hello, I'm Your Name
+                        ようこそ、MSK Studioへ
                     </h1>
                     <p className="text-2xl text-gray-600">
                         Crafting Digital Experiences with Code & Design
