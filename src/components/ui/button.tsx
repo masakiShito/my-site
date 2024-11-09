@@ -18,22 +18,22 @@ export const Button: React.FC<ButtonProps> = ({
                                               }) => {
     // サイズごとのスタイル
     const sizeStyles = {
-        sm: 'px-4 py-2 text-sm',
-        md: 'px-6 py-3 text-base',
-        lg: 'px-8 py-4 text-lg',
+        sm: 'px-3 py-1.5 text-sm',
+        md: 'px-4 py-2 text-base',
+        lg: 'px-6 py-3 text-lg',
     };
 
     // バリアントごとのスタイル
     const variantStyles = {
-        primary: 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl',
-        secondary: 'bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl',
-        outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
-        gradient: 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl',
+        primary: 'bg-zinc-900 hover:bg-zinc-800 text-white',
+        secondary: 'bg-white hover:bg-zinc-100 text-zinc-900',
+        outline: 'border border-zinc-700 text-zinc-400 hover:text-white hover:border-white bg-transparent',
+        gradient: 'bg-gradient-to-r from-zinc-900 to-zinc-800 text-white hover:from-zinc-800 hover:to-zinc-700',
     };
 
     // ホバーアニメーションの設定
     const hoverAnimation = {
-        scale: 1.03,
+        scale: 1.02,
         transition: {
             type: 'spring',
             stiffness: 400,
@@ -43,53 +43,45 @@ export const Button: React.FC<ButtonProps> = ({
 
     // タップアニメーションの設定
     const tapAnimation = {
-        scale: 0.97,
+        scale: 0.98,
     };
 
     return (
         <motion.button
             onClick={onClick}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={hoverAnimation}
             whileTap={tapAnimation}
             className={`
-        relative
-        inline-flex
-        items-center
-        justify-center
-        rounded-full
-        font-medium
-        tracking-wide
-        transition-all
-        duration-300
-        ${sizeStyles[size]}
-        ${variantStyles[variant]}
-        ${className}
-      `}
+                relative
+                inline-flex
+                items-center
+                justify-center
+                rounded-none
+                font-light
+                tracking-wide
+                transition-all
+                duration-200
+                ${sizeStyles[size]}
+                ${variantStyles[variant]}
+                ${className}
+            `}
         >
-            {/* グラデーションホバーエフェクト（gradientバリアント用） */}
-            {variant === 'gradient' && (
-                <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 transition-opacity duration-300"
-                    whileHover={{ opacity: 0.2 }}
-                />
-            )}
-
             {/* リップルエフェクト */}
             <motion.div
-                className="absolute inset-0 rounded-full bg-white opacity-0"
+                className="absolute inset-0 bg-white opacity-0"
                 whileTap={{
-                    opacity: [0, 0.2, 0],
-                    scale: [1, 1.5, 1],
-                    transition: { duration: 0.4 },
+                    opacity: [0, 0.1, 0],
+                    scale: [1, 1.3, 1],
+                    transition: { duration: 0.3 },
                 }}
             />
 
             {/* ボタンの中身 */}
             <span className="relative z-10 flex items-center gap-2">
-        {children}
-      </span>
+                {children}
+            </span>
         </motion.button>
     );
 };
@@ -97,29 +89,29 @@ export const Button: React.FC<ButtonProps> = ({
 // 使用例のコンポーネント
 export const ButtonExample: React.FC = () => {
     return (
-        <div className="flex flex-wrap gap-4 p-4">
+        <div className="flex flex-wrap gap-4 p-4 bg-zinc-900">
             <Button variant="primary">
-                Primary Button
+                PRIMARY
             </Button>
 
             <Button variant="secondary">
-                Secondary Button
+                SECONDARY
             </Button>
 
             <Button variant="outline">
-                Outline Button
+                OUTLINE
             </Button>
 
             <Button variant="gradient">
-                Gradient Button
+                GRADIENT
             </Button>
 
             <Button variant="gradient" size="sm">
-                Small Button
+                SMALL
             </Button>
 
             <Button variant="gradient" size="lg">
-                Large Button
+                LARGE
             </Button>
         </div>
     );
